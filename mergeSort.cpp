@@ -29,18 +29,18 @@ void input() {
 }
 
 void mergeSort(int low, int high) {
-    //step 1
+    //step 1  Jika low lebih besar atau sama dengan high, berarti hanya ada satu elemen, sehingga langsung kembali
     if (low >= high) {
         return; //step 1.a
     }
 
-    int mid = (low + high) / 2; //step 2
+    int mid = (low + high) / 2; //step 2  Menentukan titik tengah dari array: mid = (low + high) / 2
 
-    //step 3
-    mergeSort(low, mid); //step 3.a
-    mergeSort(mid + 1, high); //step 3.b
+    //step 3  fungsi mergeSort secara rekursif untuk mengurutkan bagian pertama dan bagian kedua
+    mergeSort(low, mid); //step 3.a (bagian pertama)
+    mergeSort(mid + 1, high); //step 3.b (bagian kedua)
 
-    //step 4
+    //step 4  Proses penggabungan dua bagian yang telah terurut: Membandingkan elemen dari kedua bagian, dan menyusun dalam array B dalam urutan yang benar.Jika masih ada elemen tersisa di salah satu bagian, dimasukkan ke dalam array B
     int i, j;
     i = low;   //step 4.a
     j = mid + 1; //step 4.b
@@ -72,7 +72,7 @@ void mergeSort(int low, int high) {
         k++;
     }
 
-    //step 5
+    //step 5  Memindahkan isi array B kembali ke arr, sehingga membuat array utama menjadi terurut.
     for (int y = low; y <= high; y++) {
         arr[y] = B[y];
     }
@@ -86,3 +86,8 @@ void ooutput() {
     cout << endl;
 }
 
+int main() {
+    input();
+    mergeSort(0, n - 1); 
+    ooutput(); 
+}
