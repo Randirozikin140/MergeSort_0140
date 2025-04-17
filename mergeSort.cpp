@@ -71,6 +71,11 @@ void mergeSort(int low, int high) {
         i++;
         k++;
     }
+
+    //step 5
+    for (int y = low; y <= high; y++) {
+        arr[y] = B[y];
+    }
 }
 
 void ooutput() {
@@ -82,5 +87,7 @@ void ooutput() {
 }
 
 int main() {
-
+    input();
+    mergeSort(0, n - 1); //step 6
+    ooutput(); 
 }
